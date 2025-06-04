@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>By NLIT Club</title>
+  <link rel="shortcut icon" href="icon.jpg" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      height: 100vh;
+    }
+
+    .ribbon-wrapper {
+      position: fixed;
+      top: 55%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 400px;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ribbon-half {
+      width: 50%;
+      height: 400px;
+      background: rgb(0, 71, 171);
+      color: white;
+      font-weight: bold;
+      font-size: 80px;
+      display: flex;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      align-items: center;
+      justify-content: right;
+      cursor: pointer;
+      position: relative;
+      transition: transform 1s ease-in;
+    }
+
+    .ribbon-half:first-child {
+      justify-content: right;
+      padding-right: 20px;
+      background-color: #c62128;
+      background-image: linear-gradient(147deg, #c62128 0%, #a00000 74%);
+
+    }
+
+    .ribbon-half:nth-child(2) {
+      justify-content: left;
+      padding-left: 20px;
+      background-color: #c62128;
+      background-image: linear-gradient(147deg, #c62128 0%, #a00000 74%);
+
+    }
+
+    .left-half {
+      border-right: 2px dashed white;
+      text-align: right;
+
+    }
+
+    .right-half {
+      border-left: 2px dashed white;
+      align-items: left;
+
+    }
+
+    .slide-left {
+      transform: translateX(-100%);
+      transition-duration: 2s;
+    }
+
+    .slide-right {
+      transform: translateX(100%);
+      transition-duration: 2s;
+    }
+
+    .image-container {
+      height: 100vh;
+      width: 100vw;
+      background-size: cover;
+      background-image: url('banner.jpg');
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="ribbon-wrapper" id="ribbon">
+    <div class="ribbon-half left-half" id="leftHalf">Media Club</div>
+    <div class="ribbon-half right-half" id="rightHalf">Formation</div>
+  </div>
+
+  <div class="image-container">
+    <!-- <img src="banner.jpg" alt="Banner" style="width: 100%; height: 100%; object-fit: cover;"> -->
+  </div>
+
+  <script>
+    const left = document.getElementById('leftHalf');
+    const right = document.getElementById('rightHalf');
+    const ribbon = document.getElementById('ribbon');
+
+    function cutRibbon() {
+      left.classList.add('slide-left');
+      right.classList.add('slide-right');
+
+      setTimeout(() => {
+        ribbon.remove();
+      }, 2000);
+    }
+
+    left.addEventListener('click', cutRibbon);
+    right.addEventListener('click', cutRibbon);
+  </script>
+
+</body>
+
+</html>
